@@ -40,6 +40,8 @@ export class CreateTaskComponent implements OnInit {
       alert('Success , Your task is saved.');
       this.router.navigate(['/taskBoard']);
     } else {
+      form.date = new Date();
+      // console.log("form",form);
       this.service.updateItem(form);
       this.router.navigate(['/taskBoard']);
       alert('Success , Your task is Updated.');
