@@ -14,7 +14,12 @@ export class TaskBoardComponent implements OnInit {
   toggel = false;
   ngOnInit() {
     this.service.getData(this.key).subscribe((a) => {
-      this.userData = a;
+      if (a != null) {
+        this.userData = a;
+      } else {
+        this.userData = [];
+      }
+
     });
     this.sortedArray('date');
     //console.log("taskboard", this.userData);
